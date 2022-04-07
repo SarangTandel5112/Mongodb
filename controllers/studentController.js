@@ -2,7 +2,6 @@ import StudentModel from "../models/student.js";
 
 class StudentController{
     static getAllDoc = async (req, res) => {
-        console.log("api");
         try {
             const result = await StudentModel.find()
             console.log(result);
@@ -43,7 +42,7 @@ class StudentController{
         
     }
 
-    static upadteDocById = async (req, res) => {
+    static updateDocById = async (req, res) => {
 
         try {
             const result = await StudentModel.findByIdAndUpdate(req.params.id, req.body)

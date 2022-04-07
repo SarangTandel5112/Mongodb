@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 
 function Login() {
-
+    let i=1
     const [stddata,setstddata]=useState([]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     async function getdata(){
         const res=await axios.get("/student");
@@ -33,14 +33,18 @@ function Login() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                    {stddata.map((onedata)=>(
+                        <tr>
+                        <th scope="row">{i++}</th>
+                        <td>{onedata.Name}</td>
+                        <td>{onedata.Age}</td>
+                        <td>{onedata.Fees.$numberDecimal}</td>
                         <td><button><i class="fas fa-pen-to-square"></i></button></td>
                         <td><button><i class="fas fa-trash-can"></i></button></td>
                     </tr>
+
+                    ))}
+                    
                 </tbody>
             </table>
         </div>
