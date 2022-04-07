@@ -6,13 +6,14 @@ import App from './App.jsx';
 import Login from './Login.jsx';
 
 function Page() {
+  const [changeTable,setChangeTable]=useState(false)
   return (
     <div className="row">
         <div className='col-lg-6'>
-            <App />
+            <App function={setChangeTable} />
         </div>
         <div className='col-lg-6'>
-            <Login />
+            <Login changeTable={changeTable} />
         </div>
       
     </div>

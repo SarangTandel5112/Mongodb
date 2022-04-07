@@ -13,10 +13,9 @@ connectDB(DATABASE_URL)
 
 //static files
 app.use(express.static('public'));
-
-app.use("/student", web);
-
 app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+app.use("/student", web);
 app.listen(port, () => {
     console.log(`server listening at http://localhost:${port}`);
 })

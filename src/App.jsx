@@ -3,12 +3,13 @@ import './App.css';
 import axios from "axios";
 import { useState } from 'react';
 
-function App() {
+function App(props) {
   const [formdata,setformdata]=useState({
     name:"",
     age:"",
     fees:""
   })
+  console.log(props.function1)
 
   function stateChange(event){
     setformdata({...formdata,[event.target.name]:event.target.value})
@@ -17,11 +18,17 @@ function App() {
 
   const {name,age,fees}=formdata;
 
-  function Submitdata(event) {
+  async function Submitdata(event) {
     event.preventDefault();
-    // const res=axios.post()
+    const res=await axios.post("/student",formdata)
     console.log(formdata)
+    props.function1(true);
+    console.log(props.changeTable)
+
+
+
     setformdata({name:"",age:"",fees:""})
+
   }
   return (
 

@@ -4,7 +4,6 @@ class StudentController{
     static getAllDoc = async (req, res) => {
         try {
             const result = await StudentModel.find()
-            console.log(result);
             res.send({data:result})
         } catch (error) {
             console.log(error);
@@ -12,23 +11,21 @@ class StudentController{
     }
 
     static createDoc = async (req, res) => {
-
         try {
-
+            console.log(req.body);
             const {name, age, fees} = req.body
             const doc = new StudentModel({
                 Name:name,
                 Age:age,
                 Fees:fees
             })
-            const result = await doc.save();
+           doc.save();
+           console.log(doc);
             //console.log(result);
         } catch (error) {
             
         }
         console.log("Create doc post method...");
-        console.log(req.body);
-        res.redirect("/student");
     }
 
     static editDoc = async (req, res) => {

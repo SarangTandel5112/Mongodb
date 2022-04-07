@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 
-function Login() {
+function Login(props) {
     let i=1
     const [stddata,setstddata]=useState([]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
     async function getdata(){
@@ -13,7 +13,8 @@ function Login() {
 
     useEffect(()=>{
         getdata();
-    },[])
+        console.log(props.changeTable)
+    },[props.changeTable])
     
 
 
