@@ -11,8 +11,7 @@ function App() {
   })
 
   function stateChange(event){
-    setformdata({...formdata,[event.target.name]:[event.target.value]})
-    console.log(formdata);
+    setformdata({...formdata,[event.target.name]:event.target.value})
   }
  
 
@@ -26,7 +25,8 @@ function App() {
   }
   return (
 
-    <div className="container-fluid">
+    <div className="container-fluid liststd">
+      <h1>Add New Student</h1>
       <form>
         <div>
           <input name="name" className='form-control mb-2' placeholder='name' onChange={stateChange} value={name} />
