@@ -2,6 +2,7 @@ import StudentModel from "../models/student.js";
 
 class StudentController{
     static getAllDoc = async (req, res) => {
+        console.log("api");
         try {
             const result = await StudentModel.find()
             console.log(result);

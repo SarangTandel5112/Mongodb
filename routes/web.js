@@ -4,10 +4,12 @@ import StudentController from '../controllers/studentController.js';
 const router = express.Router();
 
 
-router.get('/', StudentController.getAllDoc)
+router.get('/', ()=>{
+    console.log("api");
+})
 router.post('/', StudentController.createDoc)
 router.get('/edit/:id', StudentController.editDoc)
-// router.post('/update/:id', StudentController.updateDocById)
-// router.post('/delete/:id', StudentController.deleteDocById)
+router.post('/update/:id', StudentController.updateDocById)
+router.post('/delete/:id', StudentController.deleteDocById)
 
 export default router;

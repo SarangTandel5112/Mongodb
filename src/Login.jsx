@@ -1,12 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Login() {
 
+    const [stddata,setstddata]=useState([]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    async function getdata(){
+        const res=await axios.get("/student");
+        setstddata(res.data.data)
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+
+    useEffect(()=>{
+        getdata();
+    },[])
+    
+
+
     return (
         <div className="liststd">
+            {console.log(stddata)}
             <h1>List of Students</h1>
             <table class="table table-striped">
                 <thead>
