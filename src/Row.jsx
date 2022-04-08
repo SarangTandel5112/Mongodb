@@ -51,7 +51,7 @@ function Row(props) {
                     <td>{props.age}</td>
                     <td>{props.fees}</td>
                     <td><button onClick={editoption} value={props.id}><i class="fas fa-pen-to-square"></i></button></td>
-                    <td><button  value={props.id} onClick={deleteoption}>{props.id}<i class="fas fa-trash-can"></i></button></td>
+                    <td><button  value={props.id} onClick={deleteoption}><i class="fas fa-trash-can"></i></button></td>
                 </tr>
             }
 
