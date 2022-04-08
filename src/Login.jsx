@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
 import Row from './Row';
+
 function Login(props) {
     let i = 1
     const [stddata, setstddata] = useState([]);
@@ -35,9 +35,9 @@ function Login(props) {
                 </thead>
                 <tbody>
                     {stddata.map((onedata) => (
-                        
-                            <Row sr={i++} name={onedata.Name} age={onedata.Age} fees={onedata.Fees} />
-                        
+
+                        <Row sr={i++} function1={setstddata} name={onedata.Name} age={onedata.Age} fees={onedata.Fees} id={onedata._id}/>
+
                     ))}
 
                 </tbody>

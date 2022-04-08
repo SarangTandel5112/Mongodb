@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import { useState } from 'react';
@@ -21,12 +20,10 @@ function App(props) {
   async function Submitdata(event) {
     event.preventDefault();
     const res=await axios.post("/student",formdata)
+    console.log(res);
     props.function1(true);
     props.function1(false);
-
-
     setformdata({name:"",age:"",fees:""})
-
   }
   return (
 
