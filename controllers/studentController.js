@@ -21,6 +21,7 @@ class StudentController{
             })
             res.send("Creating Data...")
            doc.save();
+           res.send("done")
            console.log(doc);
             //console.log(result);
         } catch (error) {
@@ -29,22 +30,26 @@ class StudentController{
         console.log("Create doc post method...");
     }
 
-    static editDoc = async (req, res) => {
+    // static editDoc = async (req, res) => {
 
-        try {
-            const result = await StudentModel.findById(req.params.id)
-            res.send({data:result})
-        } catch (error) {
-            console.log(error);
-        }
+    //     try {
+            
+    //         const result = await StudentModel.findById(req.params.id)
+    //         res.send({data:result})
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
         
-    }
+    // }
 
     static updateDocById = async (req, res) => {
 
         try {
-            const result = await StudentModel.findByIdAndUpdate(req.params.id, req.body)
-            res.redirect("/student")
+            console.log(req.body);
+            const result = await StudentModel.findByIdAndUpdate(req.params.id,req.body)
+            const allstudent=await StudentModel.find();
+            res.send(allstudent);
+            // res.redirect("/student")
         } catch (error) {
             console.log(error);
         }
@@ -53,8 +58,10 @@ class StudentController{
     static deleteDocById = async (req, res) => {
 
         try {
+            console.log(req.params);
             const result = await StudentModel.findByIdAndDelete(req.params.id)
-            res.redirect("/student")
+            const alldata=await StudentModel.find();
+            res.send(alldata)
         } catch (error) {
             console.log(error);
         }
