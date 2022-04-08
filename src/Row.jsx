@@ -20,17 +20,21 @@ function Row(props) {
     async function editoption(event) {
         if (edit === true) {
             const res=await axios.post(`/student/update/${event.target.value}`,data)
-            props.function1(res.data)
+            props.function1(false)
+            props.function1(true)
             setedit(false)
         }
         else {
+            props.function1(false)
+            props.function1(true)
             setedit(true)
         }
     }
 
     async function deleteoption(event){
         const res=await axios.post(`/student/delete/${event.target.value}`)
-        props.function1(res.data)
+        props.function1(false)
+        props.function1(true)
     }
 
 
@@ -42,7 +46,7 @@ function Row(props) {
                     <td><input value={Age} onChange={changedata} name="Age" /></td>
                     <td><input value={Fees} onChange={changedata} name="Fees" /></td>
                     <td><button onClick={editoption} value={props.id}>Done</button></td>
-                    <td><button  value={props.id} onClick={deleteoption}><i class="fas fa-trash-can"></i></button></td>
+                    <td><button  value={props.id} onClick={deleteoption}>{props.id}<i class="fas fa-trash-can"></i></button></td>
                 </tr>
                 :
                 <tr>
@@ -51,7 +55,7 @@ function Row(props) {
                     <td>{props.age}</td>
                     <td>{props.fees}</td>
                     <td><button onClick={editoption} value={props.id}><i class="fas fa-pen-to-square"></i></button></td>
-                    <td><button  value={props.id} onClick={deleteoption}><i class="fas fa-trash-can"></i></button></td>
+                    <td><button  value={props.id} onClick={deleteoption}>{props.id}<i class="fas fa-trash-can"></i></button></td>
                 </tr>
             }
 

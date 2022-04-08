@@ -10,11 +10,12 @@ function Login(props) {
         const res = await axios.get("/student");
         setstddata(res.data.data)
     }
-
+    const [change,setchange]=useState(true)
+    
     useEffect(() => {
         getdata();
-        console.log(props.changeTable)
-    }, [props.changeTable])
+        // console.log(props.changeTable)
+    }, [props.changeTable,change])
 
 
 
@@ -35,9 +36,7 @@ function Login(props) {
                 </thead>
                 <tbody>
                     {stddata.map((onedata) => (
-
-                        <Row sr={i++} function1={setstddata} name={onedata.Name} age={onedata.Age} fees={onedata.Fees} id={onedata._id}/>
-
+                        <Row sr={i++} function1={setchange} name={onedata.Name} age={onedata.Age} fees={onedata.Fees} id={onedata._id}/>
                     ))}
 
                 </tbody>

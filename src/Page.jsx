@@ -11,7 +11,7 @@ function Page() {
             <App function1={setChangeTable} />
         </div>
         <div className='col-lg-6'>
-            <Login changeTable={changeTable} />
+            <Login changeTable={changeTable} function2={setChangeTable} />
         </div>
       
     </div>
