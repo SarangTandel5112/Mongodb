@@ -2,20 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
 import { useEffect, useState } from 'react';
-
+import Row from './Row';
 function Login(props) {
-    let i=1
-    const [stddata,setstddata]=useState([]);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-    async function getdata(){
-        const res=await axios.get("/student");
+    let i = 1
+    const [stddata, setstddata] = useState([]);
+    async function getdata() {
+        const res = await axios.get("/student");
         setstddata(res.data.data)
-    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    }
 
-    useEffect(()=>{
+    useEffect(() => {
         getdata();
         console.log(props.changeTable)
-    },[props.changeTable])
-    
+    }, [props.changeTable])
+
 
 
     return (
@@ -34,18 +34,12 @@ function Login(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {stddata.map((onedata)=>(
-                        <tr>
-                        <th scope="row">{i++}</th>
-                        <td>{onedata.Name}</td>
-                        <td>{onedata.Age}</td>
-                        <td>{onedata.Fees.$numberDecimal}</td>
-                        <td><button><i class="fas fa-pen-to-square"></i></button></td>
-                        <td><button><i class="fas fa-trash-can"></i></button></td>
-                    </tr>
-
+                    {stddata.map((onedata) => (
+                        
+                            <Row sr={i++} name={onedata.Name} age={onedata.Age} fees={onedata.Fees} />
+                        
                     ))}
-                    
+
                 </tbody>
             </table>
         </div>

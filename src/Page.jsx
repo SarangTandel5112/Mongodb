@@ -10,7 +10,7 @@ function Page() {
   return (
     <div className="row">
         <div className='col-lg-6'>
-            <App function={setChangeTable} />
+            <App function1={setChangeTable} />
         </div>
         <div className='col-lg-6'>
             <Login changeTable={changeTable} />

@@ -20,6 +20,7 @@ class StudentController{
                 Fees:fees
             })
            doc.save();
+           res.send("done")
            console.log(doc);
             //console.log(result);
         } catch (error) {

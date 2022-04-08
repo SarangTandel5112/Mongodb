@@ -21,10 +21,8 @@ function App(props) {
   async function Submitdata(event) {
     event.preventDefault();
     const res=await axios.post("/student",formdata)
-    console.log(formdata)
     props.function1(true);
-    console.log(props.changeTable)
-
+    props.function1(false);
 
 
     setformdata({name:"",age:"",fees:""})
