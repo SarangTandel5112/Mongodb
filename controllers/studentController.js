@@ -19,6 +19,7 @@ class StudentController{
                 Age:age,
                 Fees:fees
             })
+            res.send("Creating Data...")
            doc.save();
            res.send("done")
            console.log(doc);
